@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class ViewController: UIViewController {
   @IBOutlet weak var slider: UISlider!
@@ -60,6 +61,12 @@ class ViewController: UIViewController {
     score = 0
     round = 0
     startNewRound()
+    // Add the following lines
+    let transition = CATransition()
+    transition.type = kCATransitionFade
+    transition.duration = 1
+    transition.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseOut)
+    view.layer.add(transition, forKey: nil)
   }
   
   func updateLabels() {
